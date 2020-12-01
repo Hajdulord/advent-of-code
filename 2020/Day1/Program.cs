@@ -11,7 +11,7 @@ namespace Day1
         {
             for (int i = 0 ; i < inputs.Count - 1; i++)
             {
-                for (int j = inputs.Count - 1; j >= 0; j--)
+                for (int j = inputs.Count - 1; j >= i + 1; j--)
                 {
                     if(inputs[i] + inputs[j] == 2020)
                     {
@@ -27,9 +27,9 @@ namespace Day1
         {
             for (int i = 0; i < inputs.Count - 1; i++)
             {
-                for (int j = inputs.Count - 1; j >= 0; j--)
+                for (int j = inputs.Count - 1; j >= i + 1; j--)
                 {
-                    for (int k = inputs.Count - 1; k >= 0; k--)
+                    for (int k = j - 1; k >= i + 1; k--)
                     {
                         if (inputs[i] + inputs[j] + inputs[k] == 2020)
                         {
