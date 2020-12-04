@@ -8,11 +8,17 @@
 	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
 		<None Update="input.txt" CopyToOutputDirectory="PreserveNewest" />
 		<None Update="inputTest.txt" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="validTest.txt" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="invalidTest.txt" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="petiTest.txt" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' == 'Release'">
 		<None Update="input.txt" CopyToOutputDirectory="PreserveNewest" />
 		<None Update="inputTest.txt" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="validTest.txt" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="invalidTest.txt" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="petiTest.txt" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 </Project>
