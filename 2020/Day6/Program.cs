@@ -35,8 +35,9 @@ namespace Day6
 
         private static int Solve2(List<string> inp)
         {
-            var yesSets = new List<HashSet<char>>();
+            var yesSet = new HashSet<char>();
             var sum = 0;
+            var isFirst = true;
             foreach (var item in inp)
             {
                 if (!item.Equals(string.Empty))
@@ -46,28 +47,27 @@ namespace Day6
                     {
                         tempSet.Add(item[i]);
                     }
-                    yesSets.Add(tempSet);
+
+                    if (isFirst)
+                    {
+                        yesSet = tempSet;
+                        isFirst = false;
+                    }
+                    else
+                    {
+                        yesSet.IntersectWith(tempSet);
+                    }
                 }
                 else
                 {
-                    var tempSet = yesSets.First();
-
-                    for (int i = 1; i < yesSets.Count; i++)
-                    {
-                        tempSet.IntersectWith(yesSets[i]);
-                    }
-                    sum += tempSet.Count;
-                    yesSets.Clear();
+                    sum += yesSet.Count;
+                    yesSet.Clear();
+                    isFirst = true;
                 }
 
             }
-            var temp = yesSets.First();
 
-            for (int i = 1; i < yesSets.Count; i++)
-            {
-                temp.IntersectWith(yesSets[i]);
-            }
-            sum += temp.Count;
+            sum += yesSet.Count;
             return sum;
         }
 
