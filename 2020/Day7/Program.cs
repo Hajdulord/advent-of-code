@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -114,9 +115,16 @@ namespace Day7
         {
             var list = File.ReadAllLines("input.txt").ToList().ConvertAll(Bag.Parse);
 
-            Console.WriteLine(Solve(list, "shiny gold"));
+            var stopwatch = Stopwatch.StartNew();
+            var part1 = Solve(list, "shiny gold");
 
-            Console.WriteLine(Solve2(list, "shiny gold"));
+            var part2 = Solve2(list, "shiny gold");
+
+            stopwatch.Stop();
+
+            Console.WriteLine($"Done in {stopwatch.Elapsed.TotalMilliseconds}ms");
+            Console.WriteLine($"Part1: {part1}");
+            Console.WriteLine($"Part2: {part2}");
         }
     }
 }
